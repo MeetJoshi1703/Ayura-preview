@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ayura Balance - Premium Ayurvedic supplement for inflammation support, joint comfort, and digestive balance. Ancient wisdom meets modern science.">
+    <title>Ayura Nutrition - Balance Your Body, Naturally</title>
+
+    <style>
+        /* ==================== RESET & BASE STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2D5F4C;
+            --secondary: #D4A574;
+            --accent: #F4F1EA;
+            --text: #2C2C2C;
+            --white: #FFFFFF;
+            --bg-light: #FAFAF8;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ==================== UTILITY CLASSES ==================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(45, 95, 76, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #234a3a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 95, 76, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: #c89560;
+            transform: translateY(-2px);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==================== HEADER ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 20px 0;
+        }
+
+        header.scrolled {
+            background: var(--white);
+            box-shadow: 0 2px 10px var(--shadow);
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            transition: all 0.3s;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            background: linear-gradient(135deg, rgba(45, 95, 76, 0.9), rgba(45, 95, 76, 0.7)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23F4F1EA" width="1200" height="600"/><circle fill="%23D4A574" opacity="0.1" cx="200" cy="150" r="180"/><circle fill="%232D5F4C" opacity="0.1" cx="900" cy="400" r="250"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 180px 0 120px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero-subheadline {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .trust-badge::before {
+            content: "✓";
+            width: 24px;
+            height: 24px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* ==================== PRODUCT SHOWCASE ==================== */
+        .product-showcase {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .product-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .product-image {
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px var(--shadow);
+        }
+
+        .launch-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .product-info h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .product-benefits {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .product-benefits li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .product-benefits li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .hero-ingredients {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+
+        .ingredient-tag {
+            background: var(--accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .price-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: var(--bg-light);
+            border-radius: 15px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary);
+            background: var(--white);
+            color: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .quantity-display {
+            font-size: 1.3rem;
+            font-weight: 600;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        /* ==================== BENEFITS GRID ==================== */
+        .benefits-section {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 40px 25px;
+            background: var(--white);
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: var(--text);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* ==================== HOW IT WORKS ==================== */
+        .how-it-works {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 25px;
+        }
+
+        .step h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* ==================== INGREDIENTS SECTION ==================== */
+        .ingredients-section {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .ingredient-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .ingredient-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .ingredient-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .ingredient-info {
+            padding: 25px;
+        }
+
+        .ingredient-info h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .ingredient-info p {
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        /* ==================== SOCIAL PROOF ==================== */
+        .social-proof {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .rating-display {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .stars {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-light);
+            padding: 35px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .testimonial-stars {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .customer-count {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ==================== QUALITY & TESTING ==================== */
+        .quality-section {
+            padding: 100px 0;
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .quality-section .section-header h2,
+        .quality-section .section-header p {
+            color: var(--white);
+        }
+
+        .quality-badges {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .quality-badge {
+            text-align: center;
+        }
+
+        .badge-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 3rem;
+        }
+
+        .quality-badge h3 {
+            margin-bottom: 10px;
+        }
+
+        .disclaimer {
+            max-width: 900px;
+            margin: 40px auto 0;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            font-size: 0.85rem;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        /* ==================== FINAL CTA ==================== */
+        .final-cta {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .cta-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cta-image img {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 20px;
+        }
+
+        .cta-text h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .guarantee-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .guarantee-list li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .guarantee-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .email-signup input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.6;
+        }
+
+        /* ==================== EMAIL MODAL ==================== */
+        .email-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .email-modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 500px;
+            position: relative;
+            text-align: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text);
+            background: none;
+            border: none;
+        }
+
+        .modal-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1rem;
+        }
+
+        /* ==================== CART NOTIFICATION ==================== */
+        .cart-notification {
+            position: fixed;
+            top: 100px;
+            right: -400px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px var(--shadow);
+            z-index: 1500;
+            transition: right 0.3s ease;
+        }
+
+        .cart-notification.show {
+            right: 20px;
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px var(--shadow);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .product-content,
+            .cta-content {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .quality-badges {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .hero {
+                padding: 140px 0 80px;
+            }
+
+            .modal-content {
+                margin: 20px;
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .benefits-grid,
+            .ingredients-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header id="header">
+        <nav class="container">
+            <a href="#" class="logo">Ayura</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#product">Product</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#ingredients">Ingredients</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#cta" class="btn btn-primary" style="padding: 10px 25px;">Shop Now</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero">
+        <div class="container">
+            <h1>Balance Your Body, Naturally</h1>
+            <p class="hero-subheadline">Ayurvedic 4-Spice Synergy for inflammation support and joint comfort</p>
+            <a href="#product" class="btn btn-secondary">Shop Ayura Balance</a>
+
+            <div class="trust-badges">
+                <div class="trust-badge">GMP Certified</div>
+                <div class="trust-badge">Third-Party Tested</div>
+                <div class="trust-badge">100% Natural</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRODUCT SHOWCASE ==================== -->
+    <section class="product-showcase" id="product">
+        <div class="container">
+            <div class="product-content fade-in">
+                <div class="product-image">
+                    <!-- Product bottle mockup placeholder -->
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 600'%3E%3Cdefs%3E%3ClinearGradient id='bottle' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232D5F4C;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23D4A574;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='%23F4F1EA' width='400' height='600'/%3E%3Crect x='120' y='100' width='160' height='220' rx='80' fill='url(%23bottle)'/%3E%3Crect x='140' y='80' width='120' height='40' rx='5' fill='%23D4A574'/%3E%3Crect x='130' y='320' width='140' height='180' rx='15' fill='url(%23bottle)'/%3E%3Ctext x='200' y='420' font-family='Arial' font-size='32' font-weight='bold' fill='white' text-anchor='middle'%3EAyura%3C/text%3E%3Ctext x='200' y='450' font-family='Arial' font-size='18' fill='white' text-anchor='middle'%3EBalance%3C/text%3E%3C/svg%3E" alt="Ayura Balance Supplement Bottle">
+                    <span class="launch-badge">Launch Special</span>
+                </div>
+
+                <div class="product-info">
+                    <h2>Ayura Balance</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;">Premium Ayurvedic 4-Spice Synergy Formula</p>
+
+                    <ul class="product-benefits">
+                        <li>Supports healthy inflammation response</li>
+                        <li>Promotes joint comfort and mobility</li>
+                        <li>Aids digestive balance and gut health</li>
+                        <li>Enhances nutrient absorption naturally</li>
+                    </ul>
+
+                    <div class="hero-ingredients">
+                        <span class="ingredient-tag">🌿 Turmeric</span>
+                        <span class="ingredient-tag">🌿 Ginger</span>
+                        <span class="ingredient-tag">🌿 Clove</span>
+                        <span class="ingredient-tag">🌿 Black Pepper</span>
+                    </div>
+
+                    <div class="price-section">
+                        <div class="price">$34.99</div>
+                        <p style="opacity: 0.7; margin-bottom: 15px;">60 capsules | 30-day supply</p>
+
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" onclick="decreaseQuantity()">−</button>
+                            <span class="quantity-display" id="quantity">1</span>
+                            <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                        </div>
+
+                        <button class="btn btn-primary" onclick="addToCart()" style="width: 100%;">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BENEFITS GRID ==================== -->
+    <section class="benefits-section" id="benefits">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Why Choose Ayura Balance?</h2>
+                <p>Ancient wisdom meets modern science in every capsule</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🕉️</div>
+                    <h3>Ancient Wisdom</h3>
+                    <p>Rooted in 5,000 years of Ayurvedic tradition, our formulas honor time-tested healing practices.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🔬</div>
+                    <h3>Modern Science</h3>
+                    <p>Clinically-studied ingredients backed by contemporary research for proven effectiveness.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">✓</div>
+                    <h3>Quality Assured</h3>
+                    <p>GMP certified facilities, third-party tested for purity, potency, and safety.</p>
+                </div>
+
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🌿</div>
+                    <h3>Pure & Potent</h3>
+                    <p>No fillers, artificial ingredients, or unnecessary additives. Just pure, natural wellness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOW IT WORKS ==================== -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our Process</h2>
+                <p>From source to supplement, we ensure excellence at every step</p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Premium Sourcing</h3>
+                    <p>We source the finest ingredients from trusted suppliers, ensuring ethical and sustainable practices.</p>
+                </div>
+
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Scientific Formulation</h3>
+                    <p>Expert formulation for maximum bioavailability and synergistic benefits between ingredients.</p>
+                </div>
+
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Rigorous Testing</h3>
+                    <p>Third-party tested for purity and potency. Every batch is verified for quality assurance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== INGREDIENTS SECTION ==================== -->
+    <section class="ingredients-section" id="ingredients">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Powerful Ingredients</h2>
+                <p>Four synergistic spices working in harmony</p>
+            </div>
+
+            <div class="ingredients-grid">
+                <div class="ingredient-card fade-in">
+                    <div class="ingredient-image">🟡</div>
+                    <div class="ingredient-info">
+                        <h3>Turmeric (Curcumin)</h3>
+                        <p>Anti-inflammatory powerhouse that supports joint health, reduces oxidative stress, and promotes overall wellness.</p>
+                    </div>
+                </div>
+
+                <div class="ingredient-card fade-in">
+                    <div class="ingredient-image">🟠</div>
+                    <div class="ingredient-info">
+                        <h3>Ginger Root</h3>
+                        <p>Supports digestive health, enhances circulation, and provides natural anti-inflammatory benefits.</p>
+                    </div>
+                </div>
+
+                <div class="ingredient-card fade-in">
+                    <div class="ingredient-image">🟤</div>
+                    <div class="ingredient-info">
+                        <h3>Clove</h3>
+                        <p>Rich in antioxidants, supports immune function, and provides protective benefits throughout the body.</p>
+                    </div>
+                </div>
+
+                <div class="ingredient-card fade-in">
+                    <div class="ingredient-image">⚫</div>
+                    <div class="ingredient-info">
+                        <h3>Black Pepper (Piperine)</h3>
+                        <p>Enhances absorption of other nutrients by up to 2000%, ensuring maximum effectiveness.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SOCIAL PROOF ==================== -->
+    <section class="social-proof" id="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>What Our Customers Say</h2>
+            </div>
+
+            <div class="rating-display fade-in">
+                <div class="stars">★★★★★</div>
+                <p style="font-size: 1.2rem; font-weight: 600;">4.8 out of 5 stars</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"I've been taking Ayura Balance for 3 months and my joint discomfort has significantly improved. I love that it's all natural!"</p>
+                    <p class="testimonial-author">— Sarah M., Verified Customer</p>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Finally, a supplement that actually works! My digestion feels better and I have more energy throughout the day."</p>
+                    <p class="testimonial-author">— James L., Verified Customer</p>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The quality is exceptional. I appreciate the transparency and third-party testing. This is my go-to wellness supplement."</p>
+                    <p class="testimonial-author">— Maria K., Verified Customer</p>
+                </div>
+            </div>
+
+            <p class="customer-count fade-in">Join 10,000+ customers finding their balance</p>
+        </div>
+    </section>
+
+    <!-- ==================== QUALITY & TESTING ==================== -->
+    <section class="quality-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Uncompromising Quality</h2>
+                <p>Your health deserves the highest standards</p>
+            </div>
+
+            <div class="quality-badges">
+                <div class="quality-badge fade-in">
+                    <div class="badge-icon">✓</div>
+                    <h3>GMP Certified</h3>
+                    <p>Good Manufacturing Practices</p>
+                </div>
+
+                <div class="quality-badge fade-in">
+                    <div class="badge-icon">🔬</div>
+                    <h3>Third-Party Tested</h3>
+                    <p>Independent Lab Verification</p>
+                </div>
+
+                <div class="quality-badge fade-in">
+                    <div class="badge-icon">📋</div>
+                    <h3>COA Available</h3>
+                    <p>Certificate of Analysis</p>
+                </div>
+            </div>
+
+            <div class="disclaimer fade-in">
+                <p><strong>FDA Disclaimer:</strong> These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Always consult with a healthcare professional before starting any new supplement regimen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FINAL CTA ==================== -->
+    <section class="final-cta" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-image fade-in">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23F4F1EA;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23D4A574;stop-opacity:0.3' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23bg)' width='400' height='500'/%3E%3Crect x='140' y='120' width='120' height='180' rx='60' fill='%232D5F4C'/%3E%3Crect x='160' y='100' width='80' height='30' rx='5' fill='%23D4A574'/%3E%3Crect x='150' y='300' width='100' height='120' rx='10' fill='%232D5F4C'/%3E%3Ctext x='200' y='365' font-family='Arial' font-size='24' font-weight='bold' fill='white' text-anchor='middle'%3EAyura%3C/text%3E%3C/svg%3E" alt="Ayura Balance">
+                </div>
+
+                <div class="cta-text fade-in">
+                    <h2>Start Your Journey to Balance</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 25px;">Experience the transformative power of Ayurvedic wellness. Feel the difference natural ingredients can make.</p>
+
+                    <div class="price-section" style="margin-bottom: 25px;">
+                        <div class="price">$34.99</div>
+                        <p style="opacity: 0.7;">Special launch pricing</p>
+                    </div>
+
+                    <ul class="guarantee-list">
+                        <li>Free shipping on orders $50+</li>
+                        <li>30-day money-back guarantee</li>
+                        <li>Subscribe and save 15%</li>
+                    </ul>
+
+                    <button class="btn btn-primary" onclick="addToCart()" style="width: 100%; margin-top: 10px;">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ayura Nutrition</h3>
+                    <p>Bringing ancient Ayurvedic wisdom to modern wellness. Your journey to natural balance starts here.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook">f</a>
+                        <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                        <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#product">Products</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#ingredients">Ingredients</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Quality & Testing</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section email-signup">
+                    <h3>Join Our Wellness Community</h3>
+                    <p style="margin-bottom: 15px;">Get exclusive offers and wellness tips</p>
+                    <input type="email" placeholder="Enter your email" aria-label="Email address">
+                    <button class="btn btn-secondary" style="width: 100%;">Subscribe</button>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ayura Nutrition. All rights reserved.</p>
+                <p style="margin-top: 10px;">
+                    <a href="#" style="color: white; margin: 0 10px;">Privacy Policy</a> |
+                    <a href="#" style="color: white; margin: 0 10px;">Terms of Service</a> |
+                    <a href="#" style="color: white; margin: 0 10px;">Shipping</a> |
+                    <a href="#" style="color: white; margin: 0 10px;">Returns</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== EMAIL MODAL ==================== -->
+    <div class="email-modal" id="emailModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+            <h3>Get 10% Off Your First Order!</h3>
+            <p>Join our wellness community and receive exclusive offers</p>
+            <input type="email" placeholder="Enter your email address" aria-label="Email for discount">
+            <button class="btn btn-primary" onclick="submitEmail()">Get My Discount</button>
+        </div>
+    </div>
+
+    <!-- ==================== CART NOTIFICATION ==================== -->
+    <div class="cart-notification" id="cartNotification">
+        <strong>✓ Added to cart!</strong>
+        <p style="margin-top: 5px; opacity: 0.9;">Item successfully added to your cart</p>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ==================== SCROLL ANIMATIONS ====================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // ==================== STICKY HEADER ====================
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ==================== MOBILE MENU ====================
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // ==================== QUANTITY SELECTOR ====================
+        let quantity = 1;
+
+        function increaseQuantity() {
+            quantity++;
+            document.getElementById('quantity').textContent = quantity;
+        }
+
+        function decreaseQuantity() {
+            if (quantity > 1) {
+                quantity--;
+                document.getElementById('quantity').textContent = quantity;
+            }
+        }
+
+        // ==================== ADD TO CART ====================
+        function addToCart() {
+            const notification = document.getElementById('cartNotification');
+            notification.classList.add('show');
+
+            setTimeout(function() {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // ==================== EMAIL MODAL ====================
+        const emailModal = document.getElementById('emailModal');
+        let modalShown = false;
+
+        // Show modal after 30 seconds
+        setTimeout(function() {
+            if (!modalShown) {
+                emailModal.classList.add('active');
+                modalShown = true;
+            }
+        }, 30000);
+
+        // Show modal on exit intent
+        document.addEventListener('mouseout', function(e) {
+            if (!e.toElement && !e.relatedTarget && !modalShown) {
+                emailModal.classList.add('active');
+                modalShown = true;
+            }
+        });
+
+        function closeModal() {
+            emailModal.classList.remove('active');
+        }
+
+        function submitEmail() {
+            alert('Thank you for subscribing! Check your email for your discount code.');
+            closeModal();
+        }
+
+        // Close modal when clicking outside
+        emailModal.addEventListener('click', function(e) {
+            if (e.target === emailModal) {
+                closeModal();
+            }
+        });
+
+        // ==================== SMOOTH SCROLL ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ==================== TRUST BADGE TOOLTIPS ====================
+        const trustBadges = document.querySelectorAll('.trust-badge');
+        trustBadges.forEach(badge => {
+            badge.setAttribute('title', badge.textContent);
+        });
+    </script>
+
+</body>
+</html>

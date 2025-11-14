@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ayura Balance - Premium Ayurvedic 4-Spice Synergy supplement for inflammation support, joint comfort, and digestive balance.">
+    <title>Ayura Balance - Product Details | Ayura Nutrition</title>
+
+    <style>
+        /* Base styles inherited from index */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2D5F4C;
+            --secondary: #D4A574;
+            --accent: #F4F1EA;
+            --text: #2C2C2C;
+            --white: #FFFFFF;
+            --bg-light: #FAFAF8;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(45, 95, 76, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #234a3a;
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Product Detail */
+        .product-detail {
+            padding: 60px 0;
+        }
+
+        .product-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .product-gallery {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .main-image {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px var(--shadow);
+        }
+
+        .thumbnail-images {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .thumbnail:hover, .thumbnail.active {
+            border-color: var(--primary);
+        }
+
+        .product-info h1 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .stars {
+            color: var(--secondary);
+        }
+
+        .review-count {
+            color: var(--text);
+            opacity: 0.7;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin: 25px 0;
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .key-benefits {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .key-benefits h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .key-benefits ul {
+            list-style: none;
+        }
+
+        .key-benefits li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .key-benefits li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .purchase-box {
+            background: var(--white);
+            border: 2px solid var(--accent);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary);
+            background: var(--white);
+            color: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .quantity-display {
+            font-size: 1.3rem;
+            font-weight: 600;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .badge {
+            background: var(--accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Tabs */
+        .product-tabs {
+            margin-top: 60px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 20px;
+            border-bottom: 2px solid var(--accent);
+            margin-bottom: 30px;
+        }
+
+        .tab-button {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+        }
+
+        .tab-button.active::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .ingredient-card {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .ingredient-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .dosage {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .faq-item {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .reviews-section {
+            margin-top: 30px;
+        }
+
+        .review-card {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .review-date {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 40px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-main {
+                grid-template-columns: 1fr;
+            }
+
+            .product-gallery {
+                position: relative;
+                top: 0;
+            }
+
+            .tab-buttons {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Ayura</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="btn btn-primary" style="padding: 10px 25px;">Cart (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Product Detail -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-main">
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 600'%3E%3Cdefs%3E%3ClinearGradient id='bottle' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232D5F4C;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23D4A574;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='%23F4F1EA' width='400' height='600'/%3E%3Crect x='120' y='100' width='160' height='220' rx='80' fill='url(%23bottle)'/%3E%3Crect x='140' y='80' width='120' height='40' rx='5' fill='%23D4A574'/%3E%3Crect x='130' y='320' width='140' height='180' rx='15' fill='url(%23bottle)'/%3E%3Ctext x='200' y='420' font-family='Arial' font-size='32' font-weight='bold' fill='white' text-anchor='middle'%3EAyura%3C/text%3E%3Ctext x='200' y='450' font-family='Arial' font-size='18' fill='white' text-anchor='middle'%3EBalance%3C/text%3E%3C/svg%3E" alt="Ayura Balance" class="main-image" id="mainImage">
+
+                    <div class="thumbnail-images">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23F4F1EA' width='100' height='100'/%3E%3Crect x='30' y='20' width='40' height='60' rx='20' fill='%232D5F4C'/%3E%3C/svg%3E" class="thumbnail active" alt="View 1">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23F4F1EA' width='100' height='100'/%3E%3Ctext x='50' y='55' font-family='Arial' font-size='24' fill='%232D5F4C' text-anchor='middle'%3ELabel%3C/text%3E%3C/svg%3E" class="thumbnail" alt="View 2">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23F4F1EA' width='100' height='100'/%3E%3Ccircle cx='50' cy='50' r='20' fill='%23D4A574'/%3E%3C/svg%3E" class="thumbnail" alt="View 3">
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <h1>Ayura Balance</h1>
+                    <p style="font-size: 1.2rem; color: var(--secondary); margin-bottom: 15px;">Ayurvedic 4-Spice Synergy Formula</p>
+
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="review-count">(147 reviews)</span>
+                    </div>
+
+                    <p class="product-description">
+                        Experience the power of ancient Ayurvedic wisdom combined with modern science. Ayura Balance features a synergistic blend of four potent spices: Turmeric, Ginger, Clove, and Black Pepper, carefully formulated to support your body's natural balance.
+                    </p>
+
+                    <div class="key-benefits">
+                        <h3>Key Benefits</h3>
+                        <ul>
+                            <li>Supports healthy inflammation response</li>
+                            <li>Promotes joint comfort and mobility</li>
+                            <li>Aids digestive balance and gut health</li>
+                            <li>Enhances nutrient absorption naturally</li>
+                            <li>Rich in antioxidants for cellular protection</li>
+                        </ul>
+                    </div>
+
+                    <div class="badges">
+                        <span class="badge">GMP Certified</span>
+                        <span class="badge">Third-Party Tested</span>
+                        <span class="badge">100% Natural</span>
+                        <span class="badge">Vegan</span>
+                        <span class="badge">Non-GMO</span>
+                    </div>
+
+                    <div class="purchase-box">
+                        <div class="price">$34.99</div>
+                        <p style="opacity: 0.7; margin-bottom: 15px;">60 capsules | 30-day supply</p>
+
+                        <div class="quantity-selector">
+                            <button class="quantity-btn" onclick="decreaseQuantity()">−</button>
+                            <span class="quantity-display" id="quantity">1</span>
+                            <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                        </div>
+
+                        <button class="btn btn-primary" onclick="addToCart()" style="width: 100%; margin-bottom: 15px;">Add to Cart</button>
+
+                        <p style="text-align: center; opacity: 0.7; font-size: 0.9rem;">
+                            ✓ Free shipping on orders $50+ <br>
+                            ✓ 30-day money-back guarantee <br>
+                            ✓ Subscribe and save 15%
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="product-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" onclick="showTab('ingredients')">Ingredients</button>
+                    <button class="tab-button" onclick="showTab('directions')">Directions</button>
+                    <button class="tab-button" onclick="showTab('reviews')">Reviews</button>
+                    <button class="tab-button" onclick="showTab('faq')">FAQ</button>
+                </div>
+
+                <!-- Ingredients Tab -->
+                <div id="ingredients" class="tab-content active">
+                    <h2>Premium Ingredients</h2>
+                    <p style="margin: 20px 0;">Our formula features clinically-studied ingredients at effective dosages.</p>
+
+                    <div class="ingredients-grid">
+                        <div class="ingredient-card">
+                            <h4>Turmeric Root Extract</h4>
+                            <p class="dosage">500mg (95% Curcuminoids)</p>
+                            <p>Powerful anti-inflammatory compound that supports joint health, reduces oxidative stress, and promotes overall wellness. Standardized to 95% curcuminoids for maximum potency.</p>
+                        </div>
+
+                        <div class="ingredient-card">
+                            <h4>Ginger Root Extract</h4>
+                            <p class="dosage">300mg</p>
+                            <p>Supports digestive health, enhances circulation, and provides natural anti-inflammatory benefits. Rich in gingerols and shogaols.</p>
+                        </div>
+
+                        <div class="ingredient-card">
+                            <h4>Clove Extract</h4>
+                            <p class="dosage">150mg</p>
+                            <p>Rich in antioxidants including eugenol, supports immune function, and provides protective benefits throughout the body.</p>
+                        </div>
+
+                        <div class="ingredient-card">
+                            <h4>Black Pepper Extract</h4>
+                            <p class="dosage">10mg (95% Piperine)</p>
+                            <p>Enhances bioavailability and absorption of other nutrients by up to 2000%, ensuring maximum effectiveness of the formula.</p>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 30px; opacity: 0.8;">
+                        <strong>Other Ingredients:</strong> Vegetable cellulose (capsule), rice flour, magnesium stearate (vegetable source).
+                    </p>
+                </div>
+
+                <!-- Directions Tab -->
+                <div id="directions" class="tab-content">
+                    <h2>Directions for Use</h2>
+
+                    <div style="margin: 30px 0;">
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Recommended Dosage</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                            Take 2 capsules daily with food, or as directed by your healthcare professional.
+                        </p>
+
+                        <h3 style="color: var(--primary); margin: 30px 0 15px;">Best Practices</h3>
+                        <ul style="list-style-position: inside; line-height: 2;">
+                            <li>Take with a meal containing healthy fats for optimal absorption</li>
+                            <li>Consistency is key - take at the same time each day</li>
+                            <li>Stay well-hydrated throughout the day</li>
+                            <li>Allow 2-4 weeks for optimal results</li>
+                        </ul>
+
+                        <h3 style="color: var(--primary); margin: 30px 0 15px;">Warnings</h3>
+                        <p style="background: var(--bg-light); padding: 20px; border-radius: 10px;">
+                            Consult your healthcare provider before use if you are pregnant, nursing, taking any medications, or have any medical conditions. Keep out of reach of children. Store in a cool, dry place.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div id="reviews" class="tab-content">
+                    <h2>Customer Reviews</h2>
+                    <div class="product-rating" style="margin: 20px 0;">
+                        <span class="stars" style="font-size: 1.5rem;">★★★★★</span>
+                        <span style="font-size: 1.2rem; font-weight: 600;">4.8 out of 5</span>
+                        <span class="review-count">(147 reviews)</span>
+                    </div>
+
+                    <div class="reviews-section">
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div>
+                                    <div class="reviewer-name">Sarah M.</div>
+                                    <div class="stars">★★★★★</div>
+                                </div>
+                                <div class="review-date">2 weeks ago</div>
+                            </div>
+                            <p><strong>Life-changing supplement!</strong></p>
+                            <p>I've been taking Ayura Balance for 3 months and my joint discomfort has significantly improved. I love that it's all natural and backed by science. The quality is exceptional!</p>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div>
+                                    <div class="reviewer-name">James L.</div>
+                                    <div class="stars">★★★★★</div>
+                                </div>
+                                <div class="review-date">1 month ago</div>
+                            </div>
+                            <p><strong>Finally works!</strong></p>
+                            <p>Finally, a supplement that actually works! My digestion feels better and I have more energy throughout the day. The turmeric-ginger combo is perfect.</p>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div>
+                                    <div class="reviewer-name">Maria K.</div>
+                                    <div class="stars">★★★★★</div>
+                                </div>
+                                <div class="review-date">3 weeks ago</div>
+                            </div>
+                            <p><strong>Exceptional quality</strong></p>
+                            <p>The quality is exceptional. I appreciate the transparency and third-party testing. This is my go-to wellness supplement now. Highly recommend!</p>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div>
+                                    <div class="reviewer-name">Robert P.</div>
+                                    <div class="stars">★★★★☆</div>
+                                </div>
+                                <div class="review-date">2 months ago</div>
+                            </div>
+                            <p><strong>Great product, minor suggestion</strong></p>
+                            <p>Great product overall. Noticed improvements in joint flexibility after about 3 weeks. Only wish the capsules were slightly smaller, but that's a minor thing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Tab -->
+                <div id="faq" class="tab-content">
+                    <h2>Frequently Asked Questions</h2>
+
+                    <div style="margin-top: 30px;">
+                        <div class="faq-item">
+                            <div class="faq-question">How long does it take to see results?</div>
+                            <p>Most customers report noticing benefits within 2-4 weeks of consistent use. However, results may vary based on individual factors. For optimal results, we recommend taking Ayura Balance consistently for at least 8-12 weeks.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Is Ayura Balance safe to take with other supplements?</div>
+                            <p>Ayura Balance is formulated with natural ingredients and is generally safe to combine with other supplements. However, we recommend consulting with your healthcare provider before starting any new supplement regimen, especially if you're taking medications.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Is this product vegan and gluten-free?</div>
+                            <p>Yes! Ayura Balance is 100% vegan, gluten-free, non-GMO, and free from common allergens. We use vegetable cellulose capsules and source only the highest quality plant-based ingredients.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">What makes Ayura Balance different from other turmeric supplements?</div>
+                            <p>Ayura Balance features a synergistic 4-spice formula based on traditional Ayurvedic principles. The combination of turmeric, ginger, clove, and black pepper works together for enhanced effectiveness. Plus, our black pepper extract (piperine) increases bioavailability by up to 2000%.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Do you offer a money-back guarantee?</div>
+                            <p>Absolutely! We offer a 30-day money-back guarantee. If you're not completely satisfied with Ayura Balance, simply contact our customer service team for a full refund - no questions asked.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">Are your products third-party tested?</div>
+                            <p>Yes, all Ayura products are third-party tested for purity, potency, and safety. We manufacture in GMP-certified facilities and provide Certificates of Analysis (COA) upon request.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ayura Nutrition</h3>
+                    <p>Bringing ancient Ayurvedic wisdom to modern wellness.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ayura Nutrition. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Quantity selector
+        let quantity = 1;
+
+        function increaseQuantity() {
+            quantity++;
+            document.getElementById('quantity').textContent = quantity;
+        }
+
+        function decreaseQuantity() {
+            if (quantity > 1) {
+                quantity--;
+                document.getElementById('quantity').textContent = quantity;
+            }
+        }
+
+        function addToCart() {
+            alert('Added ' + quantity + ' item(s) to cart!');
+        }
+
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Thumbnail image switching
+        document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
+            thumb.addEventListener('click', function() {
+                // Remove active class from all thumbnails
+                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked thumbnail
+                this.classList.add('active');
+                // Could change main image here if we had multiple product images
+            });
+        });
+    </script>
+
+</body>
+</html>

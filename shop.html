@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop premium Ayurvedic supplements from Ayura Nutrition. High-quality, third-party tested wellness products.">
+    <title>Shop - Ayura Nutrition</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2D5F4C;
+            --secondary: #D4A574;
+            --accent: #F4F1EA;
+            --text: #2C2C2C;
+            --white: #FFFFFF;
+            --bg-light: #FAFAF8;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(45, 95, 76, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #234a3a;
+            transform: translateY(-2px);
+        }
+
+        /* Shop Hero */
+        .shop-hero {
+            background: linear-gradient(135deg, rgba(45, 95, 76, 0.9), rgba(45, 95, 76, 0.7)),
+                        var(--accent);
+            padding: 80px 0 60px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .shop-hero h1 {
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .shop-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Filters */
+        .shop-filters {
+            background: var(--bg-light);
+            padding: 30px 0;
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        select {
+            padding: 10px 15px;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            background: var(--white);
+            color: var(--text);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* Product Grid */
+        .shop-products {
+            padding: 60px 0;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .products-count {
+            font-size: 1.1rem;
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .product-image-wrapper {
+            position: relative;
+            background: var(--bg-light);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-category {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            color: var(--text);
+            opacity: 0.8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: var(--secondary);
+        }
+
+        .review-count {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .product-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: var(--accent);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--accent);
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .add-to-cart-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #234a3a;
+            transform: scale(1.05);
+        }
+
+        /* Empty State */
+        .coming-soon {
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--bg-light);
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        .coming-soon h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .coming-soon p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 40px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Ayura</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="btn btn-primary" style="padding: 10px 25px;">Cart (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Shop Hero -->
+    <section class="shop-hero">
+        <div class="container">
+            <h1>Premium Ayurvedic Supplements</h1>
+            <p>Ancient wisdom meets modern science for your optimal wellness</p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="shop-filters">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="category">Category:</label>
+                    <select id="category">
+                        <option value="all">All Products</option>
+                        <option value="inflammation">Inflammation Support</option>
+                        <option value="joint">Joint Health</option>
+                        <option value="digestive">Digestive Health</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sort">Sort by:</label>
+                    <select id="sort">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="shop-products">
+        <div class="container">
+            <div class="products-header">
+                <h2>Our Products</h2>
+                <p class="products-count">Showing 1 product</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1: Ayura Balance -->
+                <div class="product-card" onclick="window.location.href='product.html'">
+                    <div class="product-image-wrapper">
+                        <span class="product-badge">Launch Special</span>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Cdefs%3E%3ClinearGradient id='bottle' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%232D5F4C;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23D4A574;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='%23F4F1EA' width='200' height='300'/%3E%3Crect x='60' y='50' width='80' height='110' rx='40' fill='url(%23bottle)'/%3E%3Crect x='70' y='40' width='60' height='20' rx='3' fill='%23D4A574'/%3E%3Crect x='65' y='160' width='70' height='90' rx='8' fill='url(%23bottle)'/%3E%3Ctext x='100' y='210' font-family='Arial' font-size='16' font-weight='bold' fill='white' text-anchor='middle'%3EAyura%3C/text%3E%3Ctext x='100' y='225' font-family='Arial' font-size='9' fill='white' text-anchor='middle'%3EBalance%3C/text%3E%3C/svg%3E" alt="Ayura Balance" class="product-image">
+                    </div>
+
+                    <div class="product-info">
+                        <div class="product-category">Joint & Inflammation Support</div>
+                        <h3 class="product-title">Ayura Balance</h3>
+                        <p class="product-description">
+                            Ayurvedic 4-Spice Synergy formula featuring Turmeric, Ginger, Clove, and Black Pepper for comprehensive wellness support.
+                        </p>
+
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="review-count">(147 reviews)</span>
+                        </div>
+
+                        <div class="product-tags">
+                            <span class="tag">GMP Certified</span>
+                            <span class="tag">Vegan</span>
+                            <span class="tag">Non-GMO</span>
+                        </div>
+
+                        <div class="product-footer">
+                            <div class="product-price">$34.99</div>
+                            <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart('Ayura Balance', 34.99)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coming Soon Section -->
+            <div class="coming-soon">
+                <h2>More Products Coming Soon!</h2>
+                <p>We're working on expanding our product line. Stay tuned for more premium Ayurvedic supplements designed to support your wellness journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ayura Nutrition</h3>
+                    <p>Bringing ancient Ayurvedic wisdom to modern wellness.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ayura Nutrition. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function addToCart(productName, price) {
+            alert('Added ' + productName + ' to cart! ($' + price + ')');
+            // In a real implementation, this would update cart state
+        }
+    </script>
+
+</body>
+</html>

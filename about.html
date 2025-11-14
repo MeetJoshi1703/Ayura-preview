@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Ayura Nutrition - bringing ancient Ayurvedic wisdom to modern wellness with premium, science-backed supplements.">
+    <title>About Us - Ayura Nutrition</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2D5F4C;
+            --secondary: #D4A574;
+            --accent: #F4F1EA;
+            --text: #2C2C2C;
+            --white: #FFFFFF;
+            --bg-light: #FAFAF8;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(45, 95, 76, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #234a3a;
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(45, 95, 76, 0.9), rgba(45, 95, 76, 0.7)),
+                        var(--accent);
+            padding: 100px 0 80px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .about-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .about-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 80px 0;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 25px;
+        }
+
+        .value-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 80px 0;
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-content h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .mission-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .mission-box {
+            background: var(--primary);
+            color: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        .mission-box h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .mission-box p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Quality Section */
+        .quality-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .quality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .quality-item {
+            text-align: center;
+        }
+
+        .quality-badge {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 20px;
+        }
+
+        .quality-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--white);
+        }
+
+        .team-member h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .team-role {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: #c89560;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Ayura</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html" class="btn btn-primary" style="padding: 10px 25px;">Cart (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>Our Story</h1>
+            <p>Ancient wisdom meets modern science to create premium supplements for your wellness journey</p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <h2>Balance Your Body, Naturally</h2>
+                    <p>
+                        Ayura Nutrition was born from a simple belief: the ancient healing traditions of Ayurveda hold powerful solutions for modern wellness challenges. For over 5,000 years, Ayurvedic practitioners have used natural herbs and spices to restore balance and promote health.
+                    </p>
+                    <p>
+                        Today, we honor this timeless wisdom by combining traditional Ayurvedic formulas with rigorous modern science. Every product we create is carefully researched, clinically studied, and third-party tested to ensure both purity and potency.
+                    </p>
+                    <p>
+                        Our mission is simple: to make the transformative power of Ayurveda accessible to everyone seeking natural, effective solutions for their health and wellness.
+                    </p>
+                </div>
+
+                <div class="story-image">
+                    🌿
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Values</h2>
+                <p>The principles that guide everything we do</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🕉️</div>
+                    <h3>Ancient Wisdom</h3>
+                    <p>We honor 5,000 years of Ayurvedic tradition, using time-tested formulas that have supported wellness across generations.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🔬</div>
+                    <h3>Modern Science</h3>
+                    <p>Every ingredient is backed by clinical research and modern scientific validation for proven effectiveness.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">✓</div>
+                    <h3>Uncompromising Quality</h3>
+                    <p>GMP-certified manufacturing, third-party testing, and certificates of analysis for every batch we produce.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3>Sustainability</h3>
+                    <p>Ethically sourced ingredients, eco-friendly packaging, and a commitment to protecting our planet.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">💚</div>
+                    <h3>Transparency</h3>
+                    <p>Full ingredient disclosure, clear labeling, and honest communication about what's in our products.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Community</h3>
+                    <p>Building a supportive wellness community where everyone can learn, grow, and thrive together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content">
+                <h2>Our Mission</h2>
+                <p>
+                    To empower people to take control of their health naturally through premium Ayurvedic supplements that are scientifically validated, rigorously tested, and proven effective.
+                </p>
+                <p>
+                    We believe wellness should be accessible, transparent, and rooted in both tradition and innovation.
+                </p>
+
+                <div class="mission-box">
+                    <h3>Our Vision for 2030</h3>
+                    <p>
+                        To become the most trusted name in Ayurvedic wellness, helping millions of people worldwide discover the transformative power of natural, science-backed supplements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+    <section class="quality-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quality You Can Trust</h2>
+                <p>Every product meets the highest standards of purity and potency</p>
+            </div>
+
+            <div class="quality-grid">
+                <div class="quality-item">
+                    <div class="quality-badge">✓</div>
+                    <h3>GMP Certified</h3>
+                    <p>Manufactured in Good Manufacturing Practice certified facilities</p>
+                </div>
+
+                <div class="quality-item">
+                    <div class="quality-badge">🔬</div>
+                    <h3>Third-Party Tested</h3>
+                    <p>Independent lab verification for purity and potency</p>
+                </div>
+
+                <div class="quality-item">
+                    <div class="quality-badge">📋</div>
+                    <h3>COA Available</h3>
+                    <p>Certificate of Analysis provided for every batch</p>
+                </div>
+
+                <div class="quality-item">
+                    <div class="quality-badge">🌿</div>
+                    <h3>100% Natural</h3>
+                    <p>No artificial ingredients, fillers, or unnecessary additives</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Team</h2>
+                <p>Passionate experts dedicated to your wellness</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">👨‍⚕️</div>
+                    <h3>Dr. Raj Patel</h3>
+                    <p class="team-role">Founder & Chief Formulation Officer</p>
+                    <p>Ayurvedic practitioner with 20+ years of experience in traditional medicine and modern nutrition science.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-photo">👩‍🔬</div>
+                    <h3>Dr. Sarah Chen</h3>
+                    <p class="team-role">Director of Scientific Research</p>
+                    <p>PhD in Nutritional Biochemistry, specializing in herbal supplement efficacy and bioavailability.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-photo">👨‍💼</div>
+                    <h3>Michael Torres</h3>
+                    <p class="team-role">Quality Assurance Director</p>
+                    <p>15+ years ensuring pharmaceutical-grade quality standards in supplement manufacturing.</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-photo">👩‍💼</div>
+                    <h3>Priya Sharma</h3>
+                    <p class="team-role">Head of Customer Wellness</p>
+                    <p>Certified nutritionist dedicated to helping customers achieve their health goals naturally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Your Wellness Journey?</h2>
+            <p>Experience the power of ancient Ayurvedic wisdom combined with modern science</p>
+            <a href="shop.html" class="btn btn-secondary">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ayura Nutrition</h3>
+                    <p>Bringing ancient Ayurvedic wisdom to modern wellness.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ayura Nutrition. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
